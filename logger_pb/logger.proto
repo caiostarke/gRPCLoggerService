@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package logger;
+
+option go_package = "/logger_pb";
+
+message Log {
+    string message = 1;
+}
+
+message CreateLogRequest {
+    Log log = 1;
+}
+
+message CreateLogResponse {
+    Log log = 1;
+}
+
+service LoggerService {
+    rpc CreateLog(CreateLogRequest) returns (CreateLogResponse) {};
+}
